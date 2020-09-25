@@ -6,5 +6,5 @@ const router = express.Router();
 router.post("/create", notesAPI.createNote);
 router.get("/", notesAPI.showPosts);
 router.put("/update/:id", notesAPI.update);
-
+router.delete("/delete/:id", notesAPI.delete);
 module.exports = router;
