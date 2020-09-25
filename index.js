@@ -1,11 +1,11 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const db = require("./config/mongoose");
 
 const app = express();
 const port = 8000;
 
-//routing to express router
+app.use(express.json());
+
 app.use("/", require("./routes"));
 
 app.get("/home", (req, res) => {

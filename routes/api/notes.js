@@ -1,11 +1,10 @@
 const express = require("express");
-
+const notesAPI = require("../../controllers/api/notes_api");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  return res.json(200, {
-    message: "notes API !!!!",
-  });
-});
+//CRUD (create read update delete routes)
+router.post("/create", notesAPI.createNote);
+router.get("/", notesAPI.showPosts);
+router.put("/update/:id", notesAPI.update);
 
 module.exports = router;
