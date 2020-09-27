@@ -1,6 +1,8 @@
 const Notes = require("../../models/notes");
 const Users = require("../../models/users");
+const jwt = require("jsonwebtoken");
 
+require("dotenv").config();
 module.exports.signUp = async (req, res) => {
   try {
     const user = new Users(req.body);
@@ -29,6 +31,7 @@ module.exports.signIn = (req, res) => {
           message: `ERROR Invalid username or password`,
         });
       }
+      const accessToken = jwt.sign(user);
       return res.json(200, {
         message: `SignIn Successful Wellcome ${user.username}`,
       });
