@@ -6,8 +6,10 @@ require("dotenv").config();
 
 router.use(express.json());
 
+//Sign-up route send username and password in json data
 router.post("/signup", notesAPI.signUp);
 router.post("/signin", notesAPI.signIn);
+//router to update the accessToken using refreshToken
 router.post("/token", notesAPI.token);
 
 //CRUD (create read update delete routes)

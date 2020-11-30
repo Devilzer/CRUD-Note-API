@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 let refreshTokens = [];
 
+// user signup method
 module.exports.signUp = async (req, res) => {
   try {
     const user = new Users(req.body);
@@ -19,6 +20,7 @@ module.exports.signUp = async (req, res) => {
   }
 };
 
+// user signin method
 module.exports.signIn = (req, res) => {
   Users.findOne(
     { username: req.body.username, password: req.body.password },
@@ -51,6 +53,7 @@ module.exports.signIn = (req, res) => {
   );
 };
 
+//meathod to access token generation using refresh token 
 module.exports.token = (req, res) => {
   const token = req.body.token;
   if (token == null) {
